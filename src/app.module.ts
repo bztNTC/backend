@@ -4,6 +4,9 @@ import { Module } from '@nestjs/common';
 // Importa o módulo TypeOrmModule, que integra o TypeORM com o NestJS
 import { TypeOrmModule } from '@nestjs/typeorm';
 
+// Importa o módulo da funcionalidade de categorias, onde estão definidos controller, service e entidade
+import { CategoriaModule } from './categoria/categoria.module';
+
 @Module({
   // A propriedade 'imports' define outros módulos que este módulo precisa usar
   imports: [
@@ -35,6 +38,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       // Útil durante o desenvolvimento, mas deve ser false em produção
       synchronize: true,
     }),
+
+    // Importa o módulo de Categoria, tornando disponíveis os controllers e services relacionados
+    CategoriaModule,
   ],
 })
 // Declaração do módulo principal da aplicação
